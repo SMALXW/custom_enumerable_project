@@ -5,6 +5,19 @@ module Enumerable
 # on the Array class. Methods defined in
 # your enumerable module will have access
 # to this method
+
+  def my_each_with_index
+    if block_given?
+      i = 0
+      for element in self do
+        yield element, i
+        i += 1
+      end
+    end
+    self
+  end
+
+
 end
 class Array
   # Define my_each here
